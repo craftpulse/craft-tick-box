@@ -2,7 +2,7 @@
     "name": "percipiolondon/craft-checkbox-search-list",
     "description": "Checkbox list with search functionality",
     "type": "craft-plugin",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "keywords": [
         "craft",
         "cms",
