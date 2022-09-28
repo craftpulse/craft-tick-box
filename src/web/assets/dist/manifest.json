@@ -1,0 +1,15 @@
+{
+  "src/js/main.ts": {
+    "file": "assets/main.5a84d0ed.js",
+    "src": "src/js/main.ts",
+    "isEntry": true,
+    "css": [
+      "assets/main.dfd0c408.css"
+    ]
+  },
+  "src/js/checkbox-search-field.ts": {
+    "file": "assets/checkbox.ef333dcf.js",
+    "src": "src/js/checkbox-search-field.ts",
+    "isEntry": true
+  }
+}

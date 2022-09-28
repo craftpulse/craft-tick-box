@@ -1,6 +1,6 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-.csl-component label{
-    width: 100%;
+.csl-component label {
+  width: 100%;
 }

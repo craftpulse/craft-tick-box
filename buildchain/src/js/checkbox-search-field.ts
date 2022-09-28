@@ -8,7 +8,7 @@ const main = async () => {
 
     checkboxFields.forEach( (checkboxField) => {
 
-        let field = checkboxField.id.replace('-', '')
+        const field = checkboxField.id.replace('-', '')
 
         checkboxFieldsToMount[field] = {
             'id': '#' + checkboxField.id,
@@ -18,7 +18,7 @@ const main = async () => {
     })
 
     const root = Object.entries(checkboxFieldsToMount).map(entry => {
-        let field = entry[1]
+        const field = entry[1]
         return field.app.mount(field.id)
     })
 
