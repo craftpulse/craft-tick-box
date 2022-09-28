@@ -13,6 +13,7 @@ namespace percipiolondon\checkboxsearchlist\assetbundles\checkboxsearchlistfield
 use Craft;
 use craft\web\AssetBundle;
 use craft\web\assets\cp\CpAsset;
+use craft\web\assets\vue\VueAsset;
 
 /**
  * CheckboxSearchListFieldAsset AssetBundle
@@ -43,21 +44,20 @@ class CheckboxSearchListFieldAsset extends AssetBundle
     public function init()
     {
         // define the path that your publishable resources live
-        $this->sourcePath = "@percipiolondon/checkboxsearchlist/assetbundles/checkboxsearchlistfield/dist";
+        $this->sourcePath = "@percipiolondon/checkboxsearchlist/web/assets/dist";
 
         // define the dependencies
         $this->depends = [
             CpAsset::class,
+            VueAsset::class,
         ];
 
         // define the relative path to CSS/JS files that should be registered with the page
         // when this asset bundle is registered
         $this->js = [
-            'js/CheckboxSearchList.js',
         ];
 
         $this->css = [
-            'css/CheckboxSearchList.css',
         ];
 
         parent::init();
