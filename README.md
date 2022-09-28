@@ -1,4 +1,4 @@
-# Checkbox Search List plugin for Craft CMS 3.x
+# Checkbox Search List plugin for Craft CMS 4.x
 
 Checkbox list with search functionality
 

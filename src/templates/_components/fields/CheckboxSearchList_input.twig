@@ -12,6 +12,11 @@
 {%- set values = values ?? [] %}
 {%- set optionName = (name ?? false) ? "#{name}[]" : null %}
 
+{%- set translations = {
+    placeholder: 'Search for an option'|t('checkbox-search-list'),
+    noResults: 'There are no options available for your search'|t('checkbox-search-list')
+}  -%}
+
 {% set fieldsetAttributes = {
     class: ['checkbox-group'],
 } %}
@@ -19,6 +24,10 @@
 {% if block('attr') is defined %}
     {%- set fieldsetAttributes = fieldsetAttributes|merge(('<div ' ~ block('attr') ~ '>')|parseAttr, recursive=true) %}
 {% endif %}
+
+{% if name ?? false %}
+    {{ hiddenInput(name, '') }}
+{% endif -%}
 
 {% tag 'fieldset' with fieldsetAttributes %}
     {% if name ?? false %}
@@ -34,19 +43,16 @@
 
         {%- set option = {
             describedBy: describedBy ?? false,
-            name: optionName,
+            name: name,
             checked: (option.value is defined and option.value in values),
             autofocus: loop.first and (autofocus ?? false) and not craft.app.request.isMobileBrowser(true)
         }|merge(option) -%}
 
         {%- set optionsData = optionsData|merge([option]) %}
 
-{#        <div>#}
-{#            {% include "_includes/forms/checkbox" with option only %}#}
-{#        </div>#}
     {%- endfor %}
 
     <div id="csl-{{- name -}}" class="csl-component">
-        <field-checkbox-search-list :options="{{ optionsData|json_encode }}"></field-checkbox-search-list>
+        <field-checkbox-search-list :translations="{{- translations|json_encode -}}" :options="{{ optionsData|json_encode }}"></field-checkbox-search-list>
     </div>
 {% endtag %}

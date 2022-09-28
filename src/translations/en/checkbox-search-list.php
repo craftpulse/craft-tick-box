@@ -1,6 +1,6 @@
 <?php
 /**
- * Checkbox Search List plugin for Craft CMS 3.x
+ * Checkbox Search List plugin for Craft CMS 4.x
  *
  * Checkbox list with search functionality
  *
@@ -22,4 +22,6 @@
  */
 return [
     'Checkbox Search List plugin loaded' => 'Checkbox Search List plugin loaded',
+    'Search for an option' => 'Search for an option',
+    'There are no options available for your search' => 'There are no options available for your search'
 ];

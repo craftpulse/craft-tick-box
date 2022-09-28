@@ -1,6 +1,6 @@
 <?php
 /**
- * Checkbox Search List plugin for Craft CMS 3.x
+ * Checkbox Search List plugin for Craft CMS 4.x
  *
  * Checkbox list with search functionality
  *
@@ -13,6 +13,7 @@ namespace percipiolondon\checkboxsearchlist\fields;
 use Craft;
 use craft\base\ElementInterface;
 use craft\fields\BaseOptionsField;
+use craft\fields\Checkboxes;
 use craft\fields\data\MultiOptionsFieldData;
 use craft\helpers\ArrayHelper;
 
@@ -21,14 +22,14 @@ use craft\helpers\ArrayHelper;
  *
  * @package modules\sitemodule\fields
  */
-class FieldCheckboxSearchList extends BaseOptionsField
+class FieldCheckboxSearchList extends Checkboxes
 {
     /**
      * @inheritdoc
      */
     public static function displayName(): string
     {
-        return Craft::t('app', 'Checkboxes Search List');
+        return Craft::t('app', 'Checkboxes List');
     }
 
     /**

@@ -1,26 +1,41 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 
 interface Props {
-    options: any
+    options: any,
+    translations: any
 }
 
 const props = defineProps<Props>()
 
 const selectAll = ref(false)
 const search = ref('')
+const checkboxes = ref(props.options)
 
 const toggle = () => {
     selectAll.value != selectAll.value
+
+    checkboxes.value.map(option => {
+        option.checked = selectAll.value
+        return option
+    })
 }
 
 const id = computed(() => Math.floor(Date.now() / 1000))
 const filteredOptions = computed(() => {
     if (search.value === '') {
-        return props.options
+        return checkboxes.value
     }
 
-    return props.options.filter(option => option.label.toLowerCase().includes(search.value.toLowerCase()))
+    return checkboxes.value.filter(option => option.label.toLowerCase().includes(search.value.toLowerCase()))
+})
+
+onMounted(() => {
+    const checked = props.options.filter(option => option.checked)
+
+    if (checked.length === props.options.length) {
+        selectAll.value = true
+    }
 })
 </script>
 
@@ -30,13 +45,13 @@ const filteredOptions = computed(() => {
             <input 
                 type="text" 
                 class="bg-white w-full py-2 px-2 rounded-md border border-sate-200" 
-                placeholder="Search for an option"
+                :placeholder="translations['placeholder'] ?? ''"
                 v-model="search"
             >
         </div>
-        <div>
+        <div class="max-h-[400px] overflow-scroll" v-if="filteredOptions.length > 0">
             <div class="px-2">
-                <label class="flex items-center py-1 px-1 cursor-pointer rounded-md hover:bg-slate-200">
+                <label class="flex items-center p-1 cursor-pointer rounded-md hover:bg-slate-200">
                     <input 
                         type="checkbox" 
                         @change="toggle"
@@ -51,17 +66,21 @@ const filteredOptions = computed(() => {
                 :key="option.value"
                 class="px-2"
             >
-                <label class="flex items-center py-1 px-1 cursor-pointer rounded-md hover:bg-slate-200">
+                <label class="flex items-center p-1 cursor-pointer rounded-md hover:bg-slate-200">
                     <input
                         type="checkbox"
                         :id="`field-checkbox${id}-${i}`"
-                        :name="`fields[${option.name}]`"
-                        v-bind:checked="selectAll || option.checked"
+                        :name="`fields[${option.name}][]`"
+                        v-bind:checked="option.checked"
                         :value="option.value"
                     >
                     <span>{{ option.label }}</span>
                 </label>
             </div>
+        </div>
+
+        <div v-if="filteredOptions.length === 0" class="px-2 pt-2">
+            <span class="p-1">{{ translations['noResults'] ?? '-'}}</span>
         </div>
     </section>
 </template>
