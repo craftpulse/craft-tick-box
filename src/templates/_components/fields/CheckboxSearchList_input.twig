@@ -1,0 +1,52 @@
+{% set scriptTagOptions = {
+    'depends': [
+        'percipiolondon\\checkboxsearchlist\\assetbundles\\checkboxsearchlistfield\\CheckboxSearchListFieldAsset'
+    ],
+} %}
+
+{{ craft.checkbox.register('/src/js/main.ts', false, scriptTagOptions) }}
+{{ craft.checkbox.register('/src/js/checkbox-search-field.ts', false, scriptTagOptions) }}
+
+
+{%- set options = options ?? [] %}
+{%- set values = values ?? [] %}
+{%- set optionName = (name ?? false) ? "#{name}[]" : null %}
+
+{% set fieldsetAttributes = {
+    class: ['checkbox-group'],
+} %}
+
+{% if block('attr') is defined %}
+    {%- set fieldsetAttributes = fieldsetAttributes|merge(('<div ' ~ block('attr') ~ '>')|parseAttr, recursive=true) %}
+{% endif %}
+
+{% tag 'fieldset' with fieldsetAttributes %}
+    {% if name ?? false %}
+        {{ hiddenInput(name, '') }}
+    {% endif -%}
+
+    {%- set optionsData = [] -%}
+
+    {%- for key, option in options %}
+        {%- if option is not iterable %}
+            {%- set option = {label: option, value: key} %}
+        {%- endif %}
+
+        {%- set option = {
+            describedBy: describedBy ?? false,
+            name: optionName,
+            checked: (option.value is defined and option.value in values),
+            autofocus: loop.first and (autofocus ?? false) and not craft.app.request.isMobileBrowser(true)
+        }|merge(option) -%}
+
+        {%- set optionsData = optionsData|merge([option]) %}
+
+{#        <div>#}
+{#            {% include "_includes/forms/checkbox" with option only %}#}
+{#        </div>#}
+    {%- endfor %}
+
+    <div id="csl-{{- name -}}" class="csl-component">
+        <field-checkbox-search-list :options="{{ optionsData|json_encode }}"></field-checkbox-search-list>
+    </div>
+{% endtag %}

@@ -1,0 +1,51 @@
+{
+    "name": "percipiolondon/craft-checkbox-search-list",
+    "description": "Checkbox list with search functionality",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "checkbox search list"
+    ],
+    "support": {
+        "docs": "https://github.com/percipioglobal/checkbox-search-list/blob/master/README.md",
+        "issues": "https://github.com/percipioglobal/checkbox-search-list/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "percipio.london",
+            "homepage": "https://percipio.london"
+        }
+    ],
+    "require": {
+        "php": "^8.0.2",
+        "craftcms/cms": "^4.0.0",
+        "nystudio107/craft-plugin-vite": "^4.0.0"
+    },
+    "require-dev": {
+        "craftcms/phpstan": "dev-main",
+        "codeception/codeception": "^5.0",
+        "vlucas/phpdotenv": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "percipiolondon\\checkboxsearchlist\\": "src/"
+        }
+    },
+    "scripts": {
+        "phpstan": "phpstan --memory-limit=1G"
+    },
+    "extra": {
+        "name": "Checkbox Search List",
+        "handle": "checkbox-search-list",
+        "developer": "percipio.london",
+        "developerUrl": "https://percipio.london",
+        "documentationUrl": "https://github.com/percipioglobal/craft-checkbox-search-list/blob/master/README.md",
+        "changelogUrl": "https://raw.githubusercontent.com/percipioglobal/craft-checkbox-search-list/master/CHANGELOG.md",
+        "class": "percipiolondon\\checkboxsearchlist\\CheckboxSearchList"
+    }
+}
