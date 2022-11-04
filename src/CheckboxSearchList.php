@@ -153,7 +153,7 @@ class CheckboxSearchList extends Plugin
 
         Craft::info(
             Craft::t(
-                'checkbox-search-list',
+                'tick-box',
                 '{name} plugin loaded',
                 ['name' => $this->name]
             ),

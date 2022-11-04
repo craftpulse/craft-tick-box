@@ -29,7 +29,7 @@ class FieldCheckboxSearchList extends Checkboxes
      */
     public static function displayName(): string
     {
-        return Craft::t('app', 'Checkboxes List');
+        return Craft::t('tick-box', 'Tick Box List');
     }
 
     /**
@@ -63,7 +63,7 @@ class FieldCheckboxSearchList extends Checkboxes
             Craft::$app->getView()->setInitialDeltaValue($this->handle, null);
         }
 
-        return Craft::$app->getView()->renderTemplate('checkbox-search-list/_components/fields/CheckboxSearchList_input', [
+        return Craft::$app->getView()->renderTemplate('tick-box/_components/fields/CheckboxSearchList_input', [
             'describedBy' => $this->describedBy,
             'name' => $this->handle,
             'values' => $this->encodeValue($value),
@@ -81,7 +81,7 @@ class FieldCheckboxSearchList extends Checkboxes
      */
     protected function optionsSettingLabel(): string
     {
-        return Craft::t('app', 'Checkbox Options');
+        return Craft::t('tick-box', 'Tick Box Options');
     }
 }
 //

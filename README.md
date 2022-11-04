@@ -1,4 +1,4 @@
-# Checkbox Search List plugin for Craft CMS 4.x
+# Tick Box plugin for Craft CMS 4.x
 
 Checkbox list with search functionality
 
@@ -6,7 +6,7 @@ Checkbox list with search functionality
 
 ## Requirements
 
-This plugin requires Craft CMS 3.0.0-beta.23 or later.
+This plugin requires Craft CMS 4.0.0 or later.
 
 ## Installation
 
@@ -20,24 +20,18 @@ To install the plugin, follow these instructions.
 
         composer require percipioglobal/checkbox-search-list
 
-3. In the Control Panel, go to Settings → Plugins and click the “Install” button for Checkbox Search List.
+3. In the Control Panel, go to Settings → Plugins and click the “Install” button for Tick Box.
 
-## Checkbox Search List Overview
+## Tick Box Overview
 
--Insert text here-
+Do you ever had quite a long list of checkboxes and hard to find the ones you need? Tick Box helps you to make it easier for the editor to find his version or even select / deselect all.
 
-## Configuring Checkbox Search List
+## Configuring Tick Box
 
--Insert text here-
+You only need to install the plugin and use Tick Box as a field. You will see the options to add, which is exactly the same as the regular Checkbox list from Craft.
 
-## Using Checkbox Search List
+## Tick Box Roadmap
 
--Insert text here-
-
-## Checkbox Search List Roadmap
-
-Some things to do, and ideas for potential features:
-
-* Release it
+To be announced
 
 Brought to you by [percipio.london](https://percipio.london)
