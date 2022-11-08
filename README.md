@@ -30,6 +30,10 @@ Do you ever had quite a long list of checkboxes and hard to find the ones you ne
 
 You only need to install the plugin and use Tick Box as a field. You will see the options to add, which is exactly the same as the regular Checkbox list from Craft.
 
+## Example of Tick Box
+
+![Gif](resources/img/tick-box-example.gif)
+
 ## Tick Box Roadmap
 
 To be announced
