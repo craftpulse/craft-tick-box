@@ -93,7 +93,7 @@ class CheckboxSearchList extends Plugin
                 'devServerPublic' => 'http://localhost:3752',
                 'serverPublic' => 'http://localhost:3700',
                 'errorEntry' => '/src/js/main.ts',
-                'devServerInternal' => 'http://craft-checkbox-search-list-buildchain:3752',
+                'devServerInternal' => 'http://craft-tick-box-buildchain:3752',
                 'checkDevServer' => true,
             ],
         ];
