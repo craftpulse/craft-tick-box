@@ -2,7 +2,7 @@
     "name": "percipiolondon/craft-tick-box",
     "description": "Tick box list with search functionality",
     "type": "craft-plugin",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "keywords": [
         "craft",
         "cms",
